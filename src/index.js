@@ -9,11 +9,13 @@ import { DashboardPage } from './pages/DashboardPage';
 import { Category } from './pages/Category';
 import { PostPage } from './pages/PostPage';
 import { UserPage } from './pages/UserPage';
+import { Login } from './pages/LoginPage';
+import { PrivateRoute } from './components/HOC/PrivateRoute';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: <PrivateRoute component={Layout} />,
     // errorElement: <ErrorPage />,
     children: [
       { index: true, element: <DashboardPage /> },
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
       { path: "post", element: <PostPage /> },
       { path: "user", element: <UserPage /> }
     ]
+  },
+  {
+    path: "/login",
+    element: window.localStorage.getItem("token") ? <PrivateRoute component={Layout} /> : <Login />,
   }
 ])
 

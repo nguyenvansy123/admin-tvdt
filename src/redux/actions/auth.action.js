@@ -93,7 +93,7 @@ export const login = (user, navigate) => {
   return async (dispatch) => {
     dispatch({ type: authConstants.LOGIN_REQUEST });
 
-    axios.post(`/signin`, user)
+    axios.post(`/admin/signin`, user)
       .then((res) => {
         if (res.status === 200) {
           const { token, user } = res.data;

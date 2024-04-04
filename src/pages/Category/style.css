@@ -1,0 +1,286 @@
+table thead tr th {
+    border-top: 0;
+    font-size: 16px;
+    color: #2a3142;
+    font-weight: 600;
+    padding-top: 0
+}
+
+
+.all-package thead tr th {
+    font-size: calc(13px + (16 - 13) * ((100vw - 320px) / (1920 - 320)));
+    color: #232323;
+    text-align: center;
+    min-width: 180px;
+    background-color: #f8f8f9;
+    padding: 15px 20px
+}
+
+.all-package tbody tr td {
+    text-align: center;
+    padding: 15px 20px;
+    min-width: 150px;
+    border-bottom: 1px solid #dee2e6
+}
+
+.all-package tbody tr td img {
+    width: 50px
+}
+
+.all-package tbody tr td.td-price {
+    font-weight: 800
+}
+
+.all-package tbody tr td:first-child {
+    text-transform: uppercase;
+    font-weight: bold
+}
+
+.all-package tbody tr td:last-child {
+    font-size: 18px
+}
+
+.all-package tbody tr td:last-child .fas.fa-edit {
+    color: #42ba96
+}
+
+.all-package tbody tr td:last-child .fas.fa-trash-alt {
+    color: var(--theme-color);
+    margin-left: 10px
+}
+
+.all-package tbody tr td a {
+    color: inherit !important
+}
+
+.all-package tbody tr td.order-cancle span {
+    background-color: rgba(255, 76, 59, 0.1);
+    color: var(--theme-color);
+    border: 1px solid var(--theme-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    position: relative;
+    text-transform: capitalize
+}
+
+.all-package tbody tr td.order-success span {
+    background-color: rgba(66, 186, 150, 0.1);
+    border: 1px solid #42ba96;
+    color: #42ba96;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    position: relative;
+    text-transform: capitalize
+}
+
+.all-package tbody tr td.order-warning span {
+    background-color: rgba(255, 247, 230, 0.1);
+    color: #ffc548;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    position: relative;
+    border: 1px solid #ffc548;
+    text-transform: capitalize
+}
+
+.all-package tbody tr td.order-pending span {
+    background-color: rgba(100, 116, 139, 0.1);
+    color: #64748b;
+    border: 1px solid #64748b;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    position: relative;
+    text-transform: capitalize
+}
+
+.all-package tbody tr td.order-continue span {
+    background-color: rgba(242, 244, 248, 0.1);
+    color: #0b3a77;
+    border: 1px solid #0b3a77;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    position: relative;
+    text-transform: capitalize
+}
+
+.all-package tbody tr td:nth-child(6) {
+    font-weight: bolder
+}
+
+.all-package tbody tr td span img {
+    width: 70px
+}
+
+.coupon-table thead tr th {
+    padding: 10px
+}
+
+.coupon-table tbody tr td {
+    padding: 20px 10px
+}
+
+.coupon-table tbody tr td:last-child {
+    font-size: 14px
+}
+
+table thead .border-bottom-primary th,
+table tbody .border-bottom-primary th,
+table tbody .border-bottom-primary td {
+    border-bottom: 1px solid #ff4c3b
+}
+
+table thead .border-bottom-secondary th,
+table tbody .border-bottom-secondary th,
+table tbody .border-bottom-secondary td {
+    border-bottom: 1px solid #13c9ca
+}
+
+table thead .border-bottom-success th,
+table tbody .border-bottom-success th,
+table tbody .border-bottom-success td {
+    border-bottom: 1px solid #81ba00
+}
+
+table thead .border-bottom-danger th,
+table tbody .border-bottom-danger th,
+table tbody .border-bottom-danger td {
+    border-bottom: 1px solid #a5a5a5
+}
+
+table thead .border-bottom-info th,
+table tbody .border-bottom-info th,
+table tbody .border-bottom-info td {
+    border-bottom: 1px solid #00a8ff
+}
+
+table thead .border-bottom-light th,
+table tbody .border-bottom-light th,
+table tbody .border-bottom-light td {
+    border-bottom: 1px solid #f8f8f9
+}
+
+table thead .border-bottom-dark th,
+table tbody .border-bottom-dark th,
+table tbody .border-bottom-dark td {
+    border-bottom: 1px solid #2a3142
+}
+
+table thead .border-bottom-warning th,
+table tbody .border-bottom-warning th,
+table tbody .border-bottom-warning td {
+    border-bottom: 1px solid #ffbc58
+}
+
+.table-styling .table-primary,
+.table-styling.table-primary {
+    background-color: #ff4c3b;
+    color: #fff;
+    border: 3px solid #ff4c3b
+}
+
+.table-styling .table-primary thead,
+.table-styling.table-primary thead {
+    background-color: #ff1d08;
+    border: 3px solid #ff1d08
+}
+
+.table-styling .table-secondary,
+.table-styling.table-secondary {
+    background-color: #13c9ca;
+    color: #fff;
+    border: 3px solid #13c9ca
+}
+
+.table-styling .table-secondary thead,
+.table-styling.table-secondary thead {
+    background-color: #0f9b9b;
+    border: 3px solid #0f9b9b
+}
+
+.table-styling .table-success,
+.table-styling.table-success {
+    background-color: #81ba00;
+    color: #fff;
+    border: 3px solid #81ba00
+}
+
+.table-styling .table-success thead,
+.table-styling.table-success thead {
+    background-color: #5e8700;
+    border: 3px solid #5e8700
+}
+
+.table-styling .table-danger,
+.table-styling.table-danger {
+    background-color: #a5a5a5;
+    color: #fff;
+    border: 3px solid #a5a5a5
+}
+
+.table-styling .table-danger thead,
+.table-styling.table-danger thead {
+    background-color: #8c8c8c;
+    border: 3px solid #8c8c8c
+}
+
+.table-styling .table-info,
+.table-styling.table-info {
+    background-color: #00a8ff;
+    color: #fff;
+    border: 3px solid #00a8ff
+}
+
+.table-styling .table-info thead,
+.table-styling.table-info thead {
+    background-color: #0086cc;
+    border: 3px solid #0086cc
+}
+
+.table-styling .table-light,
+.table-styling.table-light {
+    background-color: #f8f8f9;
+    color: #fff;
+    border: 3px solid #f8f8f9
+}
+
+.table-styling .table-light thead,
+.table-styling.table-light thead {
+    background-color: #dddde1;
+    border: 3px solid #dddde1
+}
+
+.table-styling .table-dark,
+.table-styling.table-dark {
+    background-color: #2a3142;
+    color: #fff;
+    border: 3px solid #2a3142
+}
+
+.table-styling .table-dark thead,
+.table-styling.table-dark thead {
+    background-color: #161a23;
+    border: 3px solid #161a23
+}
+
+.table-styling .table-warning,
+.table-styling.table-warning {
+    background-color: #ffbc58;
+    color: #fff;
+    border: 3px solid #ffbc58
+}
+
+.table-styling .table-warning thead,
+.table-styling.table-warning thead {
+    background-color: #ffa825;
+    border: 3px solid #ffa825
+}

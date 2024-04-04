@@ -15,13 +15,12 @@ export const ListCategory = ({ data, handleUpdate }) => {
             itemCategory();
     }
 
-    
+
     const CheckHandleDeleteClick = (id) => {
         var isCheck = window.confirm("Bạn có muốn danh mục này không");
-        if(isCheck)
-            {
-                dispatch(deleteCategories({ id }))
-            }
+        if (isCheck) {
+            dispatch(deleteCategories({ id }))
+        }
     }
 
 
