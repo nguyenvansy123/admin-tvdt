@@ -11,6 +11,7 @@ import { PostPage } from './pages/PostPage';
 import { UserPage } from './pages/UserPage';
 import { Login } from './pages/LoginPage';
 import { PrivateRoute } from './components/HOC/PrivateRoute';
+import { Navigate } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: window.localStorage.getItem("token") ? <PrivateRoute component={Layout} /> : <Login />,
+    element: window.localStorage.getItem("token") ? <Navigate to="/" replace={true} /> : <Login />,
   }
 ])
 
