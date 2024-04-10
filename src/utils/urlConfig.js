@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:4000";
+const baseUrl = "https://webblog-qktl.onrender.com";
 
 export const api = `${baseUrl}/api`;
 
