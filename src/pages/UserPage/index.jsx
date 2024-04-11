@@ -55,11 +55,11 @@ export const UserPage = () => {
       <div className="row">
         <h4>Quản lý thành viên</h4>
         <div className="d-flex justify-content-between my-5">
-          <div className="add_button ms-2">
+          {/* <div className="add_button ms-2">
             <a href="#" data-bs-toggle="modal" data-bs-target="#addcategory" className="btn_1" onClick={handleShow}>
               Thêm user
             </a>
-          </div>
+          </div > */}
         </div>
       </div>
       <div className="bg-white rounded">
