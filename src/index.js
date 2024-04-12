@@ -12,6 +12,7 @@ import { UserPage } from './pages/UserPage';
 import { Login } from './pages/LoginPage';
 import { PrivateRoute } from './components/HOC/PrivateRoute';
 import { Navigate } from "react-router-dom";
+import { Baidang } from './pages/ManagerUI/baidang';
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,8 @@ const router = createBrowserRouter([
       { path: "dashboard", element: <DashboardPage /> },
       { path: "category", element: <Category /> },
       { path: "post", element: <PostPage /> },
-      { path: "user", element: <UserPage /> }
+      { path: "user", element: <UserPage /> },
+      { path: "baidang", element: <Baidang /> },
     ]
   },
   {
