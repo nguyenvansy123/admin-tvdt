@@ -59,7 +59,7 @@ export const SidebarPro = () => {
                     
                     {/* quản lý trang web */}
                     <SubMenu icon={<GrUserManager />} label={<span>Quản lý trang web</span>}>
-                        <MenuItem component={<NavLink to="baidang" />}> Bài đăng </MenuItem>
+                        <MenuItem component={<NavLink to="#" />}> Bài đăng </MenuItem>
                         <MenuItem component={<NavLink to="#" />}> Giới thiệu </MenuItem>
                         <MenuItem component={<NavLink to="#" />}> Giao diện  </MenuItem>
                     </SubMenu>
