@@ -32,7 +32,9 @@ const router = createBrowserRouter([
     path: "/login",
     element: window.localStorage.getItem("token") ? <Navigate to="/" replace={true} /> : <Login />,
   }
-])
+], {
+  // basename: "/admin-tvdt2"
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
