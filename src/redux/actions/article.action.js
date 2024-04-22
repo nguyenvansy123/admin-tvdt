@@ -28,7 +28,6 @@ export const getApprovePost = () => {
                 type: postConstants.GET_APPROVE_POST_SUCCESS,
                 payload: res.data
             })
-
         } else {
             dispatch({
                 type: postConstants.GET_APPROVE_POST_FAILURE

@@ -60,7 +60,7 @@ export default (state = initState, action) => {
             state = {
                 ...state,
                 loading: false,
-                pendingApprovePost: action.payload
+                pendingApprovePost: action.payload.items
             }
             break;
         case postConstants.GET_PENDING_APPROVE_POST_FAILURE:
@@ -79,7 +79,7 @@ export default (state = initState, action) => {
             state = {
                 ...state,
                 loading: false,
-                approvePost: action.payload
+                approvePost: action.payload.items
             }
             break;
         case postConstants.GET_APPROVE_POST_FAILURE:
