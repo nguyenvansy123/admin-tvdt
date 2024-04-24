@@ -62,7 +62,7 @@ export const getPostsByUser = () => {
         if (res.status === 200) {
             dispatch({
                 type: postConstants.GET_POST_BY_USER_SUCCESS,
-                payload: res.data
+                payload: res.data.items
             })
         } else {
             dispatch({
