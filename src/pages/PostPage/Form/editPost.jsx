@@ -108,7 +108,6 @@ export const EditPost = ({ ...props }) => {
                                 }
 
                             </select>
-                            {console.log(data)}
                             <div className="box-category">
                                 <span className="box-category-link-with-title">Chọn ảnh tiêu đề </span>
                                 <input

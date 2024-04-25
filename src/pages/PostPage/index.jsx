@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Col, Nav, Row, Tab } from 'react-bootstrap'
@@ -49,6 +49,7 @@ export const PostPage = () => {
 
     const [postdetail, setPostDetail] = useState("")
     const [postEdit, setPostEdit] = useState("")
+    const [search, setSearch] = useState("")
 
 
     useEffect(() => {
@@ -61,9 +62,7 @@ export const PostPage = () => {
         dispatch(getPostsByUser());
         dispatch(getApprovePost());
         dispatch(getPendingApprovePost());
-    }, [dispatch]);
-
-    console.log();
+    }, [search]);
 
     const showDetailPost = (_post) => {
         setPostDetail(_post)
@@ -95,6 +94,15 @@ export const PostPage = () => {
         clickedLinkRef.classList.add("active");
     };
 
+    const setSearchCallback = useCallback((value) => {
+        setSearch(value);
+      }, [setSearch]);
+
+      
+    const searchBtn = () => {
+        console.log(search);
+    }
+
     return (
         <>
             <div className="row">
@@ -119,8 +127,8 @@ export const PostPage = () => {
                                 </div>
 
                                 <div className="search_user_box">
-                                    <input type="search" className="search_user_input" placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="search-addon" />
-                                    <button type="button" className="search_user_btn" data-mdb-ripple-init><CiSearch /></button>
+                                    <input type="search" className="search_user_input" placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="search-addon" onChange={(e) => setSearchCallback(e.target.value)} />
+                                    <button type="button" className="search_user_btn" data-mdb-ripple-init onClick={() => searchBtn()}><CiSearch /></button>
                                 </div>
                             </div>
                         </Col>
@@ -135,7 +143,7 @@ export const PostPage = () => {
                                             { title: "Xem chi tiết", onClick: showDetailPost, icon: <FaEye /> },
                                             { title: "Xóa bài đăng", onClick: deletePost, icon: <MdDeleteForever /> }
                                         ]}
-
+                                        nameToFind={search}
                                     />
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="second1">

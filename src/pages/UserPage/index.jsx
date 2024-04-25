@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import "./style.css"
 import { approveUserById, deleteUserById, getAllUser } from '../../redux/actions';
@@ -18,6 +18,7 @@ export const UserPage = () => {
 
   const user = useSelector(state => state.user)
   const [key, setKey] = useState('home');
+  const [search, setSearch] = useState("")
 
   useEffect(() => {
     const tabLinks = document.querySelectorAll("a.tablinks");
@@ -50,6 +51,11 @@ export const UserPage = () => {
 
   }
 
+  const setSearchCallback = useCallback((value) => {
+    setSearch(value);
+  }, [setSearch]);
+
+
   return (
     <>
       <div className="row">
@@ -74,7 +80,7 @@ export const UserPage = () => {
                 </div>
 
                 <div className="search_user_box">
-                  <input type="search" className="search_user_input" placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="search-addon" />
+                  <input type="search" className="search_user_input" placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="search-addon" onChange={(e) => setSearchCallback(e.target.value)} />
                   <button type="button" className="search_user_btn" data-mdb-ripple-init><CiSearch /></button>
                 </div>
               </div>
@@ -82,8 +88,8 @@ export const UserPage = () => {
 
             <Col sm={12}>
               <Tab.Content>
-                <Tab.Pane eventKey="first"><ListUser handleDelete={deleteUser} /></Tab.Pane>
-                <Tab.Pane eventKey="second"><ListWaitApprovedUsers handleDelete={deleteUser} handleApprove={approveUser} /></Tab.Pane>
+                <Tab.Pane eventKey="first"><ListUser handleDelete={deleteUser} nameToFind={search} /></Tab.Pane>
+                <Tab.Pane eventKey="second"><ListWaitApprovedUsers handleDelete={deleteUser} handleApprove={approveUser} nameToFind={search} /></Tab.Pane>
               </Tab.Content>
             </Col>
           </Row>

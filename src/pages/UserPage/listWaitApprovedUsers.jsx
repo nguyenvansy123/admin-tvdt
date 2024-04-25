@@ -13,8 +13,11 @@ import { generatePublicUrlImages } from '../../utils/urlConfig';
 
 
 export const ListWaitApprovedUsers = ({ ...props }) => {
-    const { handleDelete, handleApprove } = props;
+    const { handleDelete, handleApprove, nameToFind } = props;
+
     const dispatch = useDispatch();
+
+    const users = useSelector(state => state.user.pendingMemeber)
 
     const [show, setShow] = useState(false);
     const [fileName, setFileName] = useState("");
@@ -30,16 +33,54 @@ export const ListWaitApprovedUsers = ({ ...props }) => {
 
     useEffect(() => {
         dispatch(getAwaitApproveUser());
-    }, []);
+    }, [nameToFind]);
 
-    const users = useSelector(state => state.user)
+    const renderUser = () => {
+        if (users.length <= 0)
+            return <tr><td colSpan={6}><NoDataUI content={"Bạn không có thành viên trang web nào chờ được phê duyệt."} /></td></tr>
+
+        if (nameToFind) {
+            const pendingMemeber = users?.filter((user) => user.name.includes(nameToFind))
+            return pendingMemeber.length > 0 ? pendingMemeber.map(user => renderItemUser(user)) : <tr><td colSpan={6}><NoDataUI content={"Bạn không có thành viên trang web nào chờ được phê duyệt."} /></td></tr>
+        } else {
+            return users?.map(user => renderItemUser(user));
+        }
+    }
+
+    const renderItemUser = (user) => {
+        return (
+            <tr key={user.id} className='text-center'>
+                {/* <td>
+                    <img src="../images/user.png" className='user-avatar' />
+                </td> */}
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.role}</td>
+                <td><button className='border-0 fs-1 bg-opacity-0' onClick={() => handleShow(user.degree)}><GrFormView /></button></td>
+                <td>
+                    <div className="dropdown-box">
+                        <Dropdown>
+                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                <BsThreeDots />
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu className='dropdown-content'>
+                                <Dropdown.Item as="button" onClick={() => handleDelete(user.id)} ><MdDeleteForever />Xóa Tài khoản</Dropdown.Item>
+                                <Dropdown.Item as="button" onClick={() => handleApprove(user.id)}><FaCheck />Phê duyệt tài khoản</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </div>
+                </td>
+            </tr>
+        )
+    }
 
     return (
         <>
             <table id="customers">
                 <tbody>
                     <tr className='table-header text-center'>
-                        <th className='text-center'>Ảnh đại diện </th>
+                        {/* <th className='text-center'>Ảnh đại diện </th> */}
                         <th className='text-center'>Tên</th>
                         <th className='text-center'>Email đăng nhập</th>
                         <th className='text-center'>Vai trò</th>
@@ -47,34 +88,7 @@ export const ListWaitApprovedUsers = ({ ...props }) => {
                         <th className='text-center'></th>
                     </tr>
                     {
-                        users?.pendingMemeber.length > 0 ? (users?.pendingMemeber?.map((user, i) =>
-                        (
-                            <tr key={i} className='text-center'>
-                                <td>
-                                    <img src="../images/user.png" className='user-avatar' />
-                                </td>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td>{user.role}</td>
-                                <td><button className='border-0 fs-1 bg-opacity-0' onClick={()=>handleShow(user.degree)}><GrFormView /></button></td>
-                                <td>
-                                    <div className="dropdown-box">
-                                        <Dropdown>
-                                            <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                                <BsThreeDots />
-                                            </Dropdown.Toggle>
-
-                                            <Dropdown.Menu className='dropdown-content'>
-                                                <Dropdown.Item as="button" onClick={() => handleDelete(user.id)} ><MdDeleteForever />Xóa Tài khoản</Dropdown.Item>
-                                                <Dropdown.Item as="button" onClick={() => handleApprove(user.id)}><FaCheck />Phê duyệt tài khoản</Dropdown.Item>
-                                            </Dropdown.Menu>
-                                        </Dropdown>
-                                    </div>
-                                </td>
-                            </tr>
-                        )))
-                            :
-                            <tr><td colSpan={6}><NoDataUI content={"Bạn không có thành viên trang web nào chờ được phê duyệt."} /></td></tr>
+                       renderUser()
                     }
                 </tbody>
             </table>
