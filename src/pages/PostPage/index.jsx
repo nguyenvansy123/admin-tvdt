@@ -155,6 +155,7 @@ export const PostPage = () => {
                                             { title: "Phê duyệt bài đăng", onClick: updateApprovePost, icon: <FaCheck /> },
                                             { title: "Xóa bài đăng", onClick: deletePost, icon: <MdDeleteForever /> }
                                         ]}
+                                        nameToFind={search}
                                     />
 
                                 </Tab.Pane>
