@@ -68,7 +68,7 @@ export const EditPost = ({ ...props }) => {
     }
 
     return (
-        <Modal show={show} onHide={handleCloseForm} className='w-full'>
+        <Modal size="xl" show={show} onHide={handleCloseForm} aria-labelledby="contained-modal-title-vcenter">
             <Modal.Header closeButton>
                 <Modal.Title className='fs-1'>Sửa bài viết</Modal.Title>
             </Modal.Header>

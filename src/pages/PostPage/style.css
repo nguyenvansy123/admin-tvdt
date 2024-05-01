@@ -204,3 +204,101 @@ button#post-btn svg {
   display: block;
 }
 
+
+.breadcrumb {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+}
+
+.breadcrumb-item {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.breadcrumb-item+.breadcrumb-item {
+  padding-left: 0.5rem;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  color: #6c757d;
+  content: " / ";
+  font-size: 1.4rem;
+}
+
+.breadcrumb-item a {
+  color: var(--black-color);
+  font-size: 1.4rem;
+}
+
+.book-cover {
+  padding: 15px;
+  background: #f7f7f7;
+}
+
+#main-content img {
+  max-width: 100%;
+}
+
+.book-title {
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.book-info__item {
+  background: #f7f7f7;
+  padding: 8px 20px;
+  display: block;
+  overflow: hidden;
+}
+
+.book-info__item span{
+  font-size: 1.5rem;
+}
+
+.book-info__item:nth-child(2n) {
+  background: #fcfcfc;
+}
+
+
+.info-title {
+  font-weight: 500;
+  color: #404040;
+  float: left;
+  width: 30%;
+}
+
+
+.info-content {
+  float: left;
+}
+
+.attach_files {
+  display: flex;
+  color: #a7abc3;
+  text-decoration: none;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.btn-bvdk {
+  background: #f16945;
+  border: 1px solid #f16945;
+  box-shadow: inset 0 -2px 0 0 #ba5336;
+  color: #fff;
+  padding: 5px 25px;
+}
+
+.btn-rounded {
+  border-radius: 20px;
+}

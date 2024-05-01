@@ -13,7 +13,7 @@ export const ShowPost = ({ ...props }) => {
         return parts[parts?.length - 1];
     };
 
-    const handleClickDownload = (filename)=>{
+    const handleClickDownload = (filename) => {
         console.log(filename);
         // dispatch(downloadFile(filename))
     }
@@ -31,8 +31,17 @@ export const ShowPost = ({ ...props }) => {
         document.body.removeChild(link);
     };
 
+    const formatDay = (originalDateString) => {
+        const date = new Date(originalDateString);
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        const formattedDate = `${day}/${month}/${year}`;
+        return formattedDate
+    }
+
     return (
-        <Modal width="100%" show={show} onHide={handleClose} className='w-full'>
+        <Modal width="100%" size="lg" show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter">
             <Modal.Header closeButton>
                 <Modal.Title className='fs-1'>Bài viết</Modal.Title>
             </Modal.Header>
@@ -40,54 +49,49 @@ export const ShowPost = ({ ...props }) => {
                 <section id="main-content">
                     <section className="book-detail">
                         <div className="row">
-                            <div className="col-xs-12 col-md-4">
+                            <div className="col-12 col-md-4">
+                                <figure className="book-cover">
+                                    <img
+                                        src={post.arliclePictures && generatePublicUrlImages(post.arliclePictures)}
+                                        alt={post.title}
+                                    />
+                                </figure>
+                            </div>
+                            <div className="col-12 col-md-8">
                                 <div className="book-info">
-                                    <div className="book-title">{post?.title}</div>
+                                    <div className="book-title">{post.title}</div>
                                     <div className="book-info__item">
                                         <span className="info-title">Tác giả:</span>
-                                        <span className="info-content">{post?.publisher}</span>
+                                        <span className="info-content">{post.publisher}</span>
                                     </div>
 
                                     <div className="book-info__item">
-                                        <span className="info-title">Ngày xuất bản</span>
-                                        <span className="info-content">{post?.updatedAt}</span>
+                                        <span className="info-title">Ngày đăng bài:</span>
+                                        <span className="info-content">{formatDay(post.updatedAt)}</span>
                                     </div>
                                     <div className="book-info__item">
                                         <span className="info-title">Số trang:</span>
-                                        <span className="info-content">{post?.numberOfPages}</span>
+                                        <span className="info-content">{post.numberOfPages}</span>
                                     </div>
                                     <div className="book-info__item">
                                         <span className="info-title">File nội dung:</span>
                                         <span className="info-content">
-                    
                                             <a
                                                 className="btn-bvdk btn-sm btn-rounded"
-                                                // href={generatePublicUrlFile(post?.linkDownload)}
-                                                // onClick={()=>handleClickDownload(post?.linkDownload)}
+                                                href={post.linkDownload}
                                                 target="_blank"
-                                                // download={post?._id}
                                             >
                                                 <i className="fal fa-download" /> Tải xuống
                                             </a>
-                                            {/* <button className="btn-bvdk btn-sm btn-rounded" onClick={() => handleDownload(post?.linkDownload)}><i className="fal fa-download" /> Tải xuống</button> */}
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-xs-12 col-md-4">
-                                <figure className="book-cover">
-                                    <img
-                                        src={generatePublicUrlImages(post?.arliclePictures)}
-                                        alt="Tài liệu về gây mê hồi sức"
-                                    />
-                                </figure>
-                            </div>
-                            <div className="col-xs-12 col-md-4">
-                                <iframe src={generatePublicUrlFile(post?.linkDownload)} width="100%" height="500px">
-                                </iframe>
-                            </div>
+                           
                         </div>
-                   
+                        <div className="book-content">
+                            <object data={generatePublicUrlFile(post.linkDownload)} type="application/pdf" width="100%" height="480"></object>
+                        </div>
                     </section>
                 </section>
             </Modal.Body>
