@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import "./style.css"
-import { approveUserById, deleteUserById, getAllUser } from '../../redux/actions';
+import { approveUserById, deleteUserById, getAllUser, getApproveUser, getAwaitApproveUser } from '../../redux/actions';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
@@ -40,21 +40,22 @@ export const UserPage = () => {
   };
 
   const deleteUser = (id) => {
-    dispatch(deleteUserById(id))
+    dispatch(deleteUserById(id, updateData))
   }
 
   const approveUser = (id) => {
-    dispatch(approveUserById(id))
+    dispatch(approveUserById(id, updateData))
   }
 
-  const handleShow = () => {
 
+  const updateData = () => {
+    dispatch(getApproveUser());
+    dispatch(getAwaitApproveUser());
   }
 
   const setSearchCallback = useCallback((value) => {
     setSearch(value);
   }, [setSearch]);
-
 
   return (
     <>

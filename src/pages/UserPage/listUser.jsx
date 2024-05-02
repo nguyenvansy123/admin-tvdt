@@ -7,6 +7,7 @@ import { MdBlock, MdDeleteForever } from "react-icons/md";
 import { getApproveUser } from '../../redux/actions';
 import { NoDataUI } from '../../components/NoDataUI';
 import { FaEye } from 'react-icons/fa';
+import { deleteUserById } from '../../redux/actions';
 
 
 export const ListUser = ({ ...props }) => {
@@ -35,6 +36,7 @@ export const ListUser = ({ ...props }) => {
       return users?.map(user => renderItemUser(user));
     }
   }
+
 
   const renderItemUser = (user) => {
     return (

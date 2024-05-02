@@ -10,7 +10,7 @@ import { GrFormView } from "react-icons/gr";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { generatePublicUrlImages } from '../../utils/urlConfig';
-
+import { approveUserById, deleteUserById, getAllUser } from '../../redux/actions';
 
 export const ListWaitApprovedUsers = ({ ...props }) => {
     const { handleDelete, handleApprove, nameToFind } = props;
@@ -88,7 +88,7 @@ export const ListWaitApprovedUsers = ({ ...props }) => {
                         <th className='text-center'></th>
                     </tr>
                     {
-                       renderUser()
+                        renderUser()
                     }
                 </tbody>
             </table>

@@ -68,18 +68,20 @@ export const getAwaitApproveUser = () => {
     }
 }
 
-export const deleteUserById = (id) => {
+export const deleteUserById = (id,updateData) => {
     return async dispatch => {
         dispatch({ type: userConstants.DELETE_USER_BY_ID_REQUEST });
         try {
             const res = await axios.delete(`/user/deleteUsersById/${id}`)
             const users = res.data
  
-            if (res.status === 200) {
+            if (res.status === 202) {
                 dispatch({
                     type: userConstants.DELETE_USER_BY_ID_SUCCESS,
                     payload: { users }
                 })
+                updateData()
+                toast.success("xóa thành công")
             }
         }
         catch (error) {
@@ -92,7 +94,7 @@ export const deleteUserById = (id) => {
 }
 
 
-export const approveUserById = (id) => {
+export const approveUserById = (id,updateData) => {
     return async dispatch => {
         dispatch({ type: userConstants.APPROVE_USER_BY_ID_REQUEST });
         try {
@@ -103,6 +105,8 @@ export const approveUserById = (id) => {
                     type: userConstants.APPROVE_USER_BY_ID_SUCCESS,
                     payload: { users }
                 })
+                updateData()
+                toast.success("update thành công")
             }
         }
         catch (error) {
