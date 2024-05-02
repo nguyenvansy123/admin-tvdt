@@ -62,7 +62,7 @@ export const PostPage = () => {
         dispatch(getPostsByUser());
         dispatch(getApprovePost());
         dispatch(getPendingApprovePost());
-    }, [search]);
+    }, [search,]);
 
     const showDetailPost = (_post) => {
         setPostDetail(_post)
