@@ -24,7 +24,7 @@ export const Category = () => {
     useEffect(() => {
         dispatch(getAllCategory())
 
-    }, [category.categories])
+    }, [dispatch])
 
     const validate = () => {
         const errors = {};
