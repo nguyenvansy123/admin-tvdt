@@ -62,7 +62,7 @@ export const PostPage = () => {
         dispatch(getPostsByUser());
         dispatch(getApprovePost());
         dispatch(getPendingApprovePost());
-    }, [search,]);
+    }, [search]);
 
     const showDetailPost = (_post) => {
         setPostDetail(_post)
@@ -74,12 +74,13 @@ export const PostPage = () => {
     }
 
     const updateApprovePost = (_post) => {
-        dispatch(updateApprovePostById(_post._id))
+        dispatch(updateApprovePostById(_post._id,updateData))
     }
 
-    const updateData = (isUpdate) => {
-        if (isUpdate)
-            dispatch(getAllPost())
+    const updateData = () => {
+        dispatch(getPostsByUser());
+        dispatch(getApprovePost());
+        dispatch(getPendingApprovePost());
     }
 
     const handleClick = (event) => {
@@ -96,9 +97,9 @@ export const PostPage = () => {
 
     const setSearchCallback = useCallback((value) => {
         setSearch(value);
-      }, [setSearch]);
+    }, [setSearch]);
 
-      
+
     const searchBtn = () => {
         console.log(search);
     }

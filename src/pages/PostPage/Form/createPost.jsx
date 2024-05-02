@@ -55,7 +55,7 @@ export const CreatePost = ({ ...props }) => {
     }
 
     const updateNewData = () => {
-        updateData(true)
+        updateData()
         handleCloseForm()
     }
 

@@ -2,7 +2,7 @@ import axios from "../../helpers/axios"
 import { toast } from 'react-toastify';
 import { categoryConstants } from "./constants";
 
-export const addCategory = (category) => {
+export const addCategory = (category,updateData) => {
     return async dispatch => {
         dispatch({ type: categoryConstants.ADD_CATEGORY_REQUEST })
 
@@ -15,7 +15,7 @@ export const addCategory = (category) => {
                         categories
                     }
                 })
-
+                updateData()
                 toast.success("đã tạo danh mục thành công")
             }
         }).catch((_error) => {
@@ -51,7 +51,7 @@ export const getAllCategory = () => {
     }
 }
 
-export const deleteCategories = (category) => {
+export const deleteCategories = (category, updateDate) => {
     return async dispatch => {
 
         dispatch({ type: categoryConstants.DELETE_CATEGORY_REQUEST })
@@ -65,6 +65,7 @@ export const deleteCategories = (category) => {
                 payload: { category: res.data.message }
             });
             toast.success("xóa danh mục thành công")
+            updateDate()
         } else {
             dispatch({
                 type: categoryConstants.DELETE_CATEGORY_FAILURE
@@ -86,7 +87,7 @@ export const updateCategory = (category, updateDate) => {
                 type: categoryConstants.UPDATE_CATEGORY_SUCCESS
             });
             toast.success("sửa đổi danh mục thành công")
-            updateDate(true)
+            updateDate()
         } else {
             dispatch({
                 type: categoryConstants.UPDATE_CATEGORY_FAILURE

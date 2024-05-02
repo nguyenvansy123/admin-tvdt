@@ -82,9 +82,8 @@ export const Category = () => {
         dispatch(updateCategory(newCategory, updateData))
     }
 
-    const updateData = (isUpdate) => {
-        if (isUpdate)
-            dispatch(getAllCategory())
+    const updateData = () => {
+        dispatch(getAllCategory())
     }
 
 
@@ -125,7 +124,7 @@ export const Category = () => {
                             <span className="visually-hidden">Loading...</span>
                         </Spinner>)
                         :
-                        <ListCategory data={category.categories} handleUpdate={handleUpdate} />
+                        <ListCategory data={category.categories} handleUpdate={handleUpdate} updateData={updateData} />
                 }
             </div>
 

@@ -72,7 +72,7 @@ export const getPostsByUser = () => {
     }
 }
 
-export const addPost = (form) => {
+export const addPost = (form,updateData) => {
     console.log(form)
     return async dispatch => {
         dispatch({ type: postConstants.ADD_POST_REQUEST })
@@ -87,6 +87,7 @@ export const addPost = (form) => {
             dispatch({
                 type: postConstants.ADD_POST_SUCCESS
             })
+            updateData()
         } else {
             console.log(res.error);
             dispatch({
@@ -97,7 +98,7 @@ export const addPost = (form) => {
     }
 }
 
-export const deletePostById = (id) => {
+export const deletePostById = (id,updateData) => {
     return async (dispatch) => {
         try {
             const res = await axios.delete(`/post/deletePostId/${id}`);
@@ -108,7 +109,7 @@ export const deletePostById = (id) => {
                     payload: res.data
                 });
                 toast.success("xóa thành công")
-
+                updateData()
             } else {
                 const { error } = res.data;
                 dispatch({
@@ -134,7 +135,7 @@ export const updateStatusPostById = (articleId, newStatus, updateData) => {
                     type: postConstants.UPDATE_STATUS_POST_BY_ID_SUCCESS,
                     payload: res.data
                 });
-                // updateData(true)
+                updateData()
                 toast.success("phê duyệt thành công")
                 console.log(res.status)
             } else {
@@ -152,7 +153,7 @@ export const updateStatusPostById = (articleId, newStatus, updateData) => {
     };
 }
 
-export const updateApprovePostById = (articleId) => {
+export const updateApprovePostById = (articleId,updateData) => {
     return async (dispatch) => {
         try {
             const res = await axios.put(`/post/updateApprovrePost/${articleId}`);
@@ -162,7 +163,7 @@ export const updateApprovePostById = (articleId) => {
                     type: postConstants.UPDATE_APPROVE_POST_SUCCESS,
                     payload: res.data
                 });
-                // updateData(true)
+                updateData()
                 toast.success("phê duyệt thành công")
                 console.log(res.status)
             } else {

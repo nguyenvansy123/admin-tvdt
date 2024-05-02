@@ -5,7 +5,7 @@ import "./style.css"
 import { useDispatch } from 'react-redux';
 import { deleteCategories } from '../../redux/actions/category.action';
 
-export const ListCategory = ({ data, handleUpdate }) => {
+export const ListCategory = ({ data, handleUpdate, updateData }) => {
     const dispatch = useDispatch();
 
     const listItemsCategory = () => {
@@ -19,7 +19,7 @@ export const ListCategory = ({ data, handleUpdate }) => {
     const CheckHandleDeleteClick = (id) => {
         var isCheck = window.confirm("Bạn có muốn danh mục này không");
         if (isCheck) {
-            dispatch(deleteCategories({ id }))
+            dispatch(deleteCategories({ id }, updateData))
         }
     }
 
@@ -42,12 +42,6 @@ export const ListCategory = ({ data, handleUpdate }) => {
         </div>)
         )
     }
-
-    const handleDelete = (id) => {
-        dispatch(deleteCategories({ id }))
-    }
-
-
 
     return (
         <div className='bg-white rounded'>
