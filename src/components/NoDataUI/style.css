@@ -1,0 +1,19 @@
+.NoData-box{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.NoData-box img {
+    max-width: 200px;
+    max-height: 150px;
+}
+
+.NoData-box p {
+    margin: 10px 0;
+    width: 500px;
+    text-align: center;
+}
