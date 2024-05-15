@@ -28,7 +28,7 @@ export const Layout = () => {
                 <Container fluid="md" g={0}>
                     <div className="header_inner d-flex justify-content-end">
                         <div className="profile_info">
-                            <img src="https://demo.dashboardpack.com/hospital-html/img/client_img.png" alt="" />
+                            <img src="../images/admin.png" alt="" />
                             <div className="profile_info_iner">
                                 <h5>Dr. Robar Smith</h5>
                                 <div className="profile_info_details">
