@@ -30,7 +30,7 @@ export const Layout = () => {
                         <div className="profile_info">
                             <img src="../images/admin.png" alt="" />
                             <div className="profile_info_iner">
-                                <h5>Dr. Robar Smith</h5>
+                                <h5>Hi Admin!</h5>
                                 <div className="profile_info_details">
                                     <a href="#">My Profile <FaUser className="info_icon" /></a>
                                     <a href="#">Settings <IoMdSettings className="info_icon" /></a>
