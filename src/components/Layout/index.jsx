@@ -15,15 +15,7 @@ export const Layout = () => {
     return (
         <>
             <SidebarPro />
-            {/* <header id="ad_header" className="main_menu home_menu w-100">
-                <div className="container d-flex align-items-center justify-content-between">
-                    <p>Xin chào <span>admin</span></p>
-                    <div className="ad_header">
-                        <FaPowerOff />
-                        <span>Đăng xuất</span>
-                    </div>
-                </div>
-            </header> */}
+           
             <section className="main_content">
                 <Container fluid="md" g={0}>
                     <div className="header_inner d-flex justify-content-end">
