@@ -10,12 +10,23 @@ import { SidebarPro } from "../SidebarPro";
 import { Footer } from "../Footer";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { signout } from "../../redux/actions";
+import { useNavigate } from 'react-router-dom';
+
 
 export const Layout = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const logout = () => {
+        dispatch(signout(navigate))
+    }
+
     return (
         <>
             <SidebarPro />
-           
+
             <section className="main_content">
                 <Container fluid="md" g={0}>
                     <div className="header_inner d-flex justify-content-end">
@@ -26,7 +37,7 @@ export const Layout = () => {
                                 <div className="profile_info_details">
                                     <a href="#">My Profile <FaUser className="info_icon" /></a>
                                     <a href="#">Settings <IoMdSettings className="info_icon" /></a>
-                                    <a href="#">Log Out <IoArrowUndo className="info_icon" /></a>
+                                    <a href="#" onClick={logout}>Log Out <IoArrowUndo className="info_icon" /></a>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +64,7 @@ export const Layout = () => {
                 rtl={false}
                 // pauseOnFocusLoss
                 draggable
-                // pauseOnHover
+            // pauseOnHover
             />
         </>
 

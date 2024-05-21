@@ -152,8 +152,8 @@ export const signout = (navigate) => {
       localStorage.removeItem('token');
       localStorage.clear();
       dispatch({ type: authConstants.LOGOUT_SUCCESS });
-      navigate("/")
       toast.success("đăng xuất thành công")
+      navigate("/login")
     } else {
       dispatch({
         type: authConstants.LOGOUT_FAILURE,
