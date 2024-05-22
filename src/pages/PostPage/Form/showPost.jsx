@@ -87,10 +87,10 @@ export const ShowPost = ({ ...props }) => {
                                     </div>
                                 </div>
                             </div>
-                           
+
                         </div>
                         <div className="book-content">
-                            <object data={generatePublicUrlFile(post.linkDownload)} type="application/pdf" width="100%" height="480"></object>
+                            <iframe src={generatePublicUrlFile(post.linkDownload)} type="application/pdf" width="100%" height="480"></iframe>
                         </div>
                     </section>
                 </section>

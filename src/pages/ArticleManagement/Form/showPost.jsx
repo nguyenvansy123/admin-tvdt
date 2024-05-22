@@ -69,12 +69,7 @@ export const ShowPost = ({ ...props }) => {
                             </div>
                         </div>
                         <div className="book-content">
-                            {/* <iframe src={postdetail.linkPreview} allow="autoplay" width="100%" height="480"></iframe> */}
-                            <object data={generatePublicUrlFile(postdetail.linkDownload)} type="application/pdf" width="100%" height="480"></object>
-                            {/* <DocViewer
-                                documents={docs}
-                                pluginRenderers={DocViewerRenderers}
-                            /> */}
+                            <iframe src={generatePublicUrlFile(postdetail.linkDownload)} type="application/pdf" width="100%" height="480"></iframe>
                         </div>
                     </section>
                 </section>

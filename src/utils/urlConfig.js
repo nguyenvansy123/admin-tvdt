@@ -8,5 +8,5 @@ export const generatePublicUrlImages = (fileName) => {
 };
 
 export const generatePublicUrlFile = (fileName) => {
-    return `${baseUrl}/public/words/${fileName}`;
+    return `https://drive.google.com/file/d/${fileName}/preview`;
 }
