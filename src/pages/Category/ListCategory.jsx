@@ -28,10 +28,10 @@ export const ListCategory = ({ data, handleUpdate, updateData }) => {
         return data && data.map((item, index) =>
         (<div className='item_category col d-flex justify-content-between px-5 py-4 border-top' key={index}>
             <div className="item_info d-flex">
-                <img className='rounded' src="../images/file.jpg" width="110px" height="74px" alt="" />
+                {/* <img className='rounded' src="../images/file.jpg" width="110px" height="74px" alt="" /> */}
                 <div className="ms-3 d-flex flex-column justify-content-center">
                     <span className="item_info_title d-block fs-5">{item.name}</span>
-                    <span className="item_info_totalView fs-6 mt-3"> 3 bài đăng &nbsp;·&nbsp; 3 lượt xem</span>
+                    {/* <span className="item_info_totalView fs-6 mt-3"> 3 bài đăng &nbsp;·&nbsp; 3 lượt xem</span> */}
                 </div>
             </div>
             <div className="item_action d-flex align-items-center">

@@ -47,7 +47,7 @@ export const ListUser = ({ ...props }) => {
         <td>{user.name}</td>
         <td>{user.email}</td>
         <td>{user.role}</td>
-        <td>20/20/2024</td>
+        {/* <td>20/20/2024</td> */}
         <td>
           <div className="dropdown-box">
             <Dropdown>
@@ -74,7 +74,7 @@ export const ListUser = ({ ...props }) => {
           <th>Tên</th>
           <th>Email đăng nhập</th>
           <th>Vai trò</th>
-          <th>Đăng nhập lần cuối cùng</th>
+          {/* <th>Đăng nhập lần cuối cùng</th> */}
           <th></th>
         </tr>
         {
