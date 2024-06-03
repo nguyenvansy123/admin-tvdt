@@ -51,7 +51,9 @@ export const ArticleManagement = () => {
     };
 
     const deletePost = (_id) => {
-        dispatch(deletePostById(_id, updateData))
+        const checkDelete = window.confirm("Bạn có muốn xóa bài đăng này không")
+        if (checkDelete)
+            dispatch(deletePostById(_id, updateData))
     }
 
     const updateData = () => {

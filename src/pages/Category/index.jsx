@@ -62,7 +62,9 @@ export const Category = () => {
     };
 
     const handleDelete = (id) => {
-        dispatch(deleteCategories({ id }, updateData))
+        const checkDelete = window.confirm("Bạn có muốn xóa danh mục này không")
+        if (checkDelete)
+            dispatch(deleteCategories({ id }, updateData))
     }
 
     const handleUpdate = (_category) => {
@@ -167,9 +169,9 @@ export const Category = () => {
                     <div className='d-flex w-100 justify-content-end'>
                         {
                             editChoice?.name ?
-                                <button className='btn_2' onClick={changeCategory} >Update</button>
+                                <button className='bg-info text-white border-0 item_action_editor d-flex align-items-center px-4 py-3 rounded-pill me-2 fs-5' onClick={changeCategory} >Update</button>
                                 :
-                                <button className='btn_2' onClick={handleCreate} >Create</button>
+                                <button className='bg-info text-white border-0 item_action_editor d-flex align-items-center px-4 py-3 rounded-pill me-2 fs-5' onClick={handleCreate} >Create</button>
                         }
                     </div>
 

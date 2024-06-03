@@ -70,11 +70,13 @@ export const PostPage = () => {
     }
 
     const deletePost = (_post) => {
-        dispatch(deletePostById(_post._id, updateData))
+        const checkDelete = window.confirm("Bạn có muốn xóa bài đăng này không")
+        if (checkDelete)
+            dispatch(deletePostById(_post._id, updateData))
     }
 
     const updateApprovePost = (_post) => {
-        dispatch(updateApprovePostById(_post._id,updateData))
+        dispatch(updateApprovePostById(_post._id, updateData))
     }
 
     const updateData = () => {

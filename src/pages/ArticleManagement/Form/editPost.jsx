@@ -50,6 +50,9 @@ export const EditPost = ({ ...props }) => {
     }
 
     const handlePost = (e) => {
+        const checkEdit = window.confirm("Bạn có muốn sửa bài đăng này không")
+        if (!checkEdit)
+            return
 
         const formdata = new FormData()
         formdata.append("title", title)

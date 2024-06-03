@@ -424,6 +424,12 @@ body {
 
 /* --------------------------end post----------------------- */
 
+.group-btn {
+    display: flex;
+    justify-content: end;
+    padding: 50px;
+    padding-bottom: 10px;
+}
 
 
 
