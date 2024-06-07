@@ -14,6 +14,7 @@ import { PrivateRoute } from './components/HOC/PrivateRoute';
 import { Navigate } from "react-router-dom";
 import { ArticleManagement } from './pages/ArticleManagement';
 import { UISetting } from './pages/ManagerUI/uiSetting';
+import { RutGonLink } from './pages/RutGonLink';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,12 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: window.localStorage.getItem("token") ? <Navigate to="/" replace={true} /> : <Login />,
+  }, {
+    path: "/rutgonlink",
+    element: <RutGonLink />,
   }
+
+
 ], {
   // basename: "/admin-tvdt2"
 })
