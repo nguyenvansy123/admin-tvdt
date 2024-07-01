@@ -19,7 +19,8 @@ import { RutGonLink } from './pages/RutGonLink';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PrivateRoute component={Layout} />,
+    // element: <PrivateRoute component={Layout} />,
+    element: <Layout />,
     // errorElement: <ErrorPage />,
     children: [
       { index: true, element: <DashboardPage /> },
